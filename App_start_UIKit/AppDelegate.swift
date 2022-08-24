@@ -5,6 +5,7 @@
 //  Created by 이준형 on 2022/08/25.
 //
 
+// App의 Life Cycle을 관리하는 곳. 앱을 시작하는 곳
 import UIKit
 
 @main

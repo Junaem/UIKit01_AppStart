@@ -5,6 +5,7 @@
 //  Created by 이준형 on 2022/08/25.
 //
 
+// 원래 AppDelegate에서 살짝 나눠진 기능
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
