@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E72FA27728B7603600CE0DCB /* SegueDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72FA27628B7603600CE0DCB /* SegueDetailViewController.swift */; };
+		E72FA27A28B7631300CE0DCB /* InstanceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72FA27828B7631300CE0DCB /* InstanceDetailViewController.swift */; };
+		E72FA27B28B7631300CE0DCB /* InstanceDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E72FA27928B7631300CE0DCB /* InstanceDetailViewController.xib */; };
+		E72FA27E28B766FB00CE0DCB /* DelegateDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72FA27C28B766FB00CE0DCB /* DelegateDetailViewController.swift */; };
+		E72FA27F28B766FB00CE0DCB /* DelegateDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E72FA27D28B766FB00CE0DCB /* DelegateDetailViewController.xib */; };
 		E739EF3228B74F7400A96FAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E739EF3128B74F7400A96FAA /* AppDelegate.swift */; };
 		E739EF3428B74F7400A96FAA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E739EF3328B74F7400A96FAA /* SceneDelegate.swift */; };
 		E739EF3628B74F7400A96FAA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E739EF3528B74F7400A96FAA /* ViewController.swift */; };
@@ -38,6 +43,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E72FA27628B7603600CE0DCB /* SegueDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueDetailViewController.swift; sourceTree = "<group>"; };
+		E72FA27828B7631300CE0DCB /* InstanceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceDetailViewController.swift; sourceTree = "<group>"; };
+		E72FA27928B7631300CE0DCB /* InstanceDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InstanceDetailViewController.xib; sourceTree = "<group>"; };
+		E72FA27C28B766FB00CE0DCB /* DelegateDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateDetailViewController.swift; sourceTree = "<group>"; };
+		E72FA27D28B766FB00CE0DCB /* DelegateDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DelegateDetailViewController.xib; sourceTree = "<group>"; };
 		E739EF2E28B74F7400A96FAA /* UIKit02_PassData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIKit02_PassData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E739EF3128B74F7400A96FAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E739EF3328B74F7400A96FAA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,10 +115,15 @@
 			children = (
 				E739EF3128B74F7400A96FAA /* AppDelegate.swift */,
 				E739EF3328B74F7400A96FAA /* SceneDelegate.swift */,
+				E72FA27628B7603600CE0DCB /* SegueDetailViewController.swift */,
 				E739EF3528B74F7400A96FAA /* ViewController.swift */,
 				E739EF6128B7501B00A96FAA /* DetailViewController.swift */,
-				E739EF6228B7501B00A96FAA /* DetailViewController.xib */,
+				E72FA27C28B766FB00CE0DCB /* DelegateDetailViewController.swift */,
+				E72FA27D28B766FB00CE0DCB /* DelegateDetailViewController.xib */,
+				E72FA27828B7631300CE0DCB /* InstanceDetailViewController.swift */,
+				E72FA27928B7631300CE0DCB /* InstanceDetailViewController.xib */,
 				E739EF3728B74F7400A96FAA /* Main.storyboard */,
+				E739EF6228B7501B00A96FAA /* DetailViewController.xib */,
 				E739EF3A28B74F7500A96FAA /* Assets.xcassets */,
 				E739EF3C28B74F7500A96FAA /* LaunchScreen.storyboard */,
 				E739EF3F28B74F7500A96FAA /* Info.plist */,
@@ -237,9 +252,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E72FA27F28B766FB00CE0DCB /* DelegateDetailViewController.xib in Resources */,
 				E739EF3E28B74F7500A96FAA /* LaunchScreen.storyboard in Resources */,
 				E739EF3B28B74F7500A96FAA /* Assets.xcassets in Resources */,
 				E739EF3928B74F7400A96FAA /* Main.storyboard in Resources */,
+				E72FA27B28B7631300CE0DCB /* InstanceDetailViewController.xib in Resources */,
 				E739EF6428B7501B00A96FAA /* DetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,8 +283,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E739EF3628B74F7400A96FAA /* ViewController.swift in Sources */,
+				E72FA27E28B766FB00CE0DCB /* DelegateDetailViewController.swift in Sources */,
 				E739EF3228B74F7400A96FAA /* AppDelegate.swift in Sources */,
+				E72FA27728B7603600CE0DCB /* SegueDetailViewController.swift in Sources */,
 				E739EF3428B74F7400A96FAA /* SceneDelegate.swift in Sources */,
+				E72FA27A28B7631300CE0DCB /* InstanceDetailViewController.swift in Sources */,
 				E739EF6328B7501B00A96FAA /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
