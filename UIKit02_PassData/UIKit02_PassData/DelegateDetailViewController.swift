@@ -9,7 +9,6 @@ import UIKit
 
 protocol DelegateDetailViewControllerDelegate: AnyObject {
     func passString(string: String)
-    
 }
 
 class DelegateDetailViewController: UIViewController {

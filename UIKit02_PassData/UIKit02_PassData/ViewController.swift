@@ -13,13 +13,38 @@ import UIKit
 // 2. segue
 // 3. instance
 // 4. delegate (대리, 위임)
+// 5. closure
+// 6. Notification - 연결포인트가 전혀 없을 떄 사용하기 좋음(detailVC같은 인스턴스 없이 NotiCenter에 올려서 사용 가능)ㅌ
 
 class ViewController: UIViewController {
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        let notificationName = Notification.Name("sendSomeString")
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(showSomeString), name: notificationName, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+//        NotificationCenter.default.removeObserver(self, name: notificationName, object: nil)  //  옵저버 삭제
+    }
+    
+    @objc func keyboardWillShow() {
+        print("will show")
+    }
+    
+    @objc func keyboardDidShow() {
+        print("did show")
+    }
+    
+    @objc func showSomeString(notification: Notification) {
+        if let str = notification.userInfo?["str"] as? String {
+            self.dataLabel.text = str
+        }
+        
     }
     
     // 1. property
@@ -64,6 +89,21 @@ class ViewController: UIViewController {
         self.present(detailVC, animated: true)
     }
     
+    // 5. clousure
+    @IBAction func moveToClousre(_ sender: Any) {
+        let detailVC = ClosureDetailViewController(nibName: "ClosureDetailViewController", bundle: nil)
+        
+        detailVC.myClosure = { str in
+            self.dataLabel.text = str
+        }
+        self.present(detailVC, animated: true, completion: nil)
+    }
+    
+    @IBAction func moveToNotification(_ sender: Any) {
+        let detailVC = NotiDetailViewController(nibName: "NotiDetailViewController", bundle: nil)
+        self.present(detailVC, animated: true, completion: nil)
+    }
+    
 }
 
 // delegate의 프로토콜을 준수하기 위해
@@ -71,6 +111,7 @@ extension ViewController: DelegateDetailViewControllerDelegate {
     func passString(string: String) {
         self.dataLabel.text = string
     }
+    
     
     
 }

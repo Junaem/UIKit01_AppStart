@@ -23,6 +23,10 @@
 		E739EF5528B74F7500A96FAA /* UIKit02_PassDataUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E739EF5428B74F7500A96FAA /* UIKit02_PassDataUITestsLaunchTests.swift */; };
 		E739EF6328B7501B00A96FAA /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E739EF6128B7501B00A96FAA /* DetailViewController.swift */; };
 		E739EF6428B7501B00A96FAA /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E739EF6228B7501B00A96FAA /* DetailViewController.xib */; };
+		E740262A28BC949A0013AADE /* ClosureDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E740262828BC949A0013AADE /* ClosureDetailViewController.swift */; };
+		E740262B28BC949A0013AADE /* ClosureDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E740262928BC949A0013AADE /* ClosureDetailViewController.xib */; };
+		E756AFF328BC9F5400FEA384 /* NotiDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E756AFF128BC9F5400FEA384 /* NotiDetailViewController.swift */; };
+		E756AFF428BC9F5400FEA384 /* NotiDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E756AFF228BC9F5400FEA384 /* NotiDetailViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +67,10 @@
 		E739EF5428B74F7500A96FAA /* UIKit02_PassDataUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKit02_PassDataUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E739EF6128B7501B00A96FAA /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		E739EF6228B7501B00A96FAA /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		E740262828BC949A0013AADE /* ClosureDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosureDetailViewController.swift; sourceTree = "<group>"; };
+		E740262928BC949A0013AADE /* ClosureDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClosureDetailViewController.xib; sourceTree = "<group>"; };
+		E756AFF128BC9F5400FEA384 /* NotiDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotiDetailViewController.swift; sourceTree = "<group>"; };
+		E756AFF228BC9F5400FEA384 /* NotiDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotiDetailViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,8 +123,12 @@
 			children = (
 				E739EF3128B74F7400A96FAA /* AppDelegate.swift */,
 				E739EF3328B74F7400A96FAA /* SceneDelegate.swift */,
+				E756AFF128BC9F5400FEA384 /* NotiDetailViewController.swift */,
+				E756AFF228BC9F5400FEA384 /* NotiDetailViewController.xib */,
 				E72FA27628B7603600CE0DCB /* SegueDetailViewController.swift */,
 				E739EF3528B74F7400A96FAA /* ViewController.swift */,
+				E740262828BC949A0013AADE /* ClosureDetailViewController.swift */,
+				E740262928BC949A0013AADE /* ClosureDetailViewController.xib */,
 				E739EF6128B7501B00A96FAA /* DetailViewController.swift */,
 				E72FA27C28B766FB00CE0DCB /* DelegateDetailViewController.swift */,
 				E72FA27D28B766FB00CE0DCB /* DelegateDetailViewController.xib */,
@@ -252,6 +264,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E740262B28BC949A0013AADE /* ClosureDetailViewController.xib in Resources */,
+				E756AFF428BC9F5400FEA384 /* NotiDetailViewController.xib in Resources */,
 				E72FA27F28B766FB00CE0DCB /* DelegateDetailViewController.xib in Resources */,
 				E739EF3E28B74F7500A96FAA /* LaunchScreen.storyboard in Resources */,
 				E739EF3B28B74F7500A96FAA /* Assets.xcassets in Resources */,
@@ -283,9 +297,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E739EF3628B74F7400A96FAA /* ViewController.swift in Sources */,
+				E740262A28BC949A0013AADE /* ClosureDetailViewController.swift in Sources */,
 				E72FA27E28B766FB00CE0DCB /* DelegateDetailViewController.swift in Sources */,
 				E739EF3228B74F7400A96FAA /* AppDelegate.swift in Sources */,
 				E72FA27728B7603600CE0DCB /* SegueDetailViewController.swift in Sources */,
+				E756AFF328BC9F5400FEA384 /* NotiDetailViewController.swift in Sources */,
 				E739EF3428B74F7400A96FAA /* SceneDelegate.swift in Sources */,
 				E72FA27A28B7631300CE0DCB /* InstanceDetailViewController.swift in Sources */,
 				E739EF6328B7501B00A96FAA /* DetailViewController.swift in Sources */,
