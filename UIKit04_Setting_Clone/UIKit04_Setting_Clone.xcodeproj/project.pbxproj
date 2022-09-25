@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E70AA15028E042CA0000553C /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70AA14F28E042CA0000553C /* SettingModel.swift */; };
 		E7E0424228DF41CA007894EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E0424128DF41CA007894EF /* AppDelegate.swift */; };
 		E7E0424428DF41CA007894EF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E0424328DF41CA007894EF /* SceneDelegate.swift */; };
 		E7E0424628DF41CA007894EF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E0424528DF41CA007894EF /* ViewController.swift */; };
@@ -16,6 +17,10 @@
 		E7E0425928DF41CB007894EF /* UIKit04_Setting_CloneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E0425828DF41CB007894EF /* UIKit04_Setting_CloneTests.swift */; };
 		E7E0426328DF41CB007894EF /* UIKit04_Setting_CloneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E0426228DF41CB007894EF /* UIKit04_Setting_CloneUITests.swift */; };
 		E7E0426528DF41CB007894EF /* UIKit04_Setting_CloneUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E0426428DF41CB007894EF /* UIKit04_Setting_CloneUITestsLaunchTests.swift */; };
+		E7E0427328DF67E3007894EF /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E0427128DF67E3007894EF /* ProfileCell.swift */; };
+		E7E0427428DF67E3007894EF /* ProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7E0427228DF67E3007894EF /* ProfileCell.xib */; };
+		E7E0427728E03900007894EF /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E0427528E03900007894EF /* MenuCell.swift */; };
+		E7E0427828E03900007894EF /* MenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7E0427628E03900007894EF /* MenuCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E70AA14F28E042CA0000553C /* SettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
 		E7E0423E28DF41CA007894EF /* UIKit04_Setting_Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIKit04_Setting_Clone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7E0424128DF41CA007894EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7E0424328DF41CA007894EF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +55,10 @@
 		E7E0425E28DF41CB007894EF /* UIKit04_Setting_CloneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UIKit04_Setting_CloneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7E0426228DF41CB007894EF /* UIKit04_Setting_CloneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKit04_Setting_CloneUITests.swift; sourceTree = "<group>"; };
 		E7E0426428DF41CB007894EF /* UIKit04_Setting_CloneUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKit04_Setting_CloneUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E7E0427128DF67E3007894EF /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
+		E7E0427228DF67E3007894EF /* ProfileCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileCell.xib; sourceTree = "<group>"; };
+		E7E0427528E03900007894EF /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		E7E0427628E03900007894EF /* MenuCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +112,12 @@
 				E7E0424128DF41CA007894EF /* AppDelegate.swift */,
 				E7E0424328DF41CA007894EF /* SceneDelegate.swift */,
 				E7E0424528DF41CA007894EF /* ViewController.swift */,
+				E70AA14F28E042CA0000553C /* SettingModel.swift */,
 				E7E0424728DF41CA007894EF /* Main.storyboard */,
+				E7E0427128DF67E3007894EF /* ProfileCell.swift */,
+				E7E0427228DF67E3007894EF /* ProfileCell.xib */,
+				E7E0427528E03900007894EF /* MenuCell.swift */,
+				E7E0427628E03900007894EF /* MenuCell.xib */,
 				E7E0424A28DF41CB007894EF /* Assets.xcassets */,
 				E7E0424C28DF41CB007894EF /* LaunchScreen.storyboard */,
 				E7E0424F28DF41CB007894EF /* Info.plist */,
@@ -232,6 +247,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7E0424E28DF41CB007894EF /* LaunchScreen.storyboard in Resources */,
+				E7E0427428DF67E3007894EF /* ProfileCell.xib in Resources */,
+				E7E0427828E03900007894EF /* MenuCell.xib in Resources */,
 				E7E0424B28DF41CB007894EF /* Assets.xcassets in Resources */,
 				E7E0424928DF41CA007894EF /* Main.storyboard in Resources */,
 			);
@@ -259,6 +276,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7E0424628DF41CA007894EF /* ViewController.swift in Sources */,
+				E7E0427728E03900007894EF /* MenuCell.swift in Sources */,
+				E70AA15028E042CA0000553C /* SettingModel.swift in Sources */,
+				E7E0427328DF67E3007894EF /* ProfileCell.swift in Sources */,
 				E7E0424228DF41CA007894EF /* AppDelegate.swift in Sources */,
 				E7E0424428DF41CA007894EF /* SceneDelegate.swift in Sources */,
 			);
