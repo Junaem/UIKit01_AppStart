@@ -25,12 +25,18 @@ class ViewController: UIViewController {
         
     }
     
+    let baseGray = UIColor(white: 230/255, alpha: 1)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         makeData()
+        title = "Settings"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        view.backgroundColor = baseGray
+        
         settingTableView.delegate = self
         settingTableView.dataSource = self
-        settingTableView.backgroundColor = UIColor(white: 230/255, alpha: 1)
+        settingTableView.backgroundColor = baseGray
         
         settingTableView.register(UINib(nibName: "ProfileCell", bundle: nil), forCellReuseIdentifier: "ProfileCell")
         settingTableView.register(UINib(nibName: "MenuCell", bundle: nil), forCellReuseIdentifier: "MenuCell")
@@ -75,7 +81,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        if indexPath.row == 0 {
+        if indexPath.section == 0 {
             return UITableView.automaticDimension
         }
         return 60
@@ -83,6 +89,5 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     
-    
-    // Settings강의 3 : 34분부터 보면 됨
+
 }
