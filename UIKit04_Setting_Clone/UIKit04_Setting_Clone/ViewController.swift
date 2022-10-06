@@ -30,8 +30,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         makeData()
-        title = "Settings"
-        navigationController?.navigationBar.prefersLargeTitles = true
+        self.title = "Settings"
+        self.navigationController?.navigationBar.prefersLargeTitles = true
         view.backgroundColor = baseGray
         
         settingTableView.delegate = self

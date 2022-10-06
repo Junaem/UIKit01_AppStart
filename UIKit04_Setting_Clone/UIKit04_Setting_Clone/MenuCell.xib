@@ -57,7 +57,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="arrow.right" catalog="system" width="128" height="98"/>
-        <image name="highlighter" catalog="system" width="128" height="119"/>
+        <image name="arrow.right" catalog="system" width="32" height="32"/>
+        <image name="highlighter" catalog="system" width="32" height="32"/>
     </resources>
 </document>
