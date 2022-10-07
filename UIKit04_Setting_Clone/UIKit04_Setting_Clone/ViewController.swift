@@ -27,6 +27,11 @@ class ViewController: UIViewController {
     
     let baseGray = UIColor(white: 230/255, alpha: 1)
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         makeData()
@@ -87,7 +92,14 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         return 60
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 1 && indexPath.row == 0 {
+            if let generalVC = UIStoryboard(name: "GeneralViewController", bundle: nil).instantiateViewController(withIdentifier: "GeneralViewController") as? GeneralViewController {
+                self.navigationController?.pushViewController(generalVC, animated: true)
+            }
+            
+        }
+    }
     
 
 }
