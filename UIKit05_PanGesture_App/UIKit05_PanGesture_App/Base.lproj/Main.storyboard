@@ -35,13 +35,23 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemTealColor"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XGp-Zf-wha">
+                                <rect key="frame" x="161.33333333333334" y="775" width="67.333333333333343" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Reset"/>
+                                <connections>
+                                    <action selector="resetButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lh2-0j-3m7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ltX-XL-gBg" secondAttribute="trailing" id="7oh-Z6-grt"/>
+                            <constraint firstItem="XGp-Zf-wha" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="M4K-xH-KyG"/>
                             <constraint firstItem="ltX-XL-gBg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="irc-qD-eKr"/>
                             <constraint firstItem="ltX-XL-gBg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="kQ3-rL-zRI"/>
+                            <constraint firstItem="XGp-Zf-wha" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yzc-rP-WNd"/>
                         </constraints>
                     </view>
                     <connections>
@@ -50,7 +60,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="-34"/>
+            <point key="canvasLocation" x="130.76923076923077" y="-34.123222748815166"/>
         </scene>
     </scenes>
     <resources>

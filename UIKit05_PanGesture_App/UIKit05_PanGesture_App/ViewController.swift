@@ -30,7 +30,6 @@ class ViewController: UIViewController {
         self.view.addSubview(myView)
     }
     
-
     @IBAction func selectPanType(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
@@ -43,6 +42,12 @@ class ViewController: UIViewController {
             break
         }
         myView.dragType = self.dragType
+    }
+    
+    @IBAction func resetButton(_ sender: Any) {
+        if let hasSuperview = myView.superview {
+            myView.center = hasSuperview.center
+        }
     }
 }
 
