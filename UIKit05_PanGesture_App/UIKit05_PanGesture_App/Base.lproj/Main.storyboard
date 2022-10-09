@@ -15,9 +15,38 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ltX-XL-gBg">
+                                <rect key="frame" x="0.0" y="47" width="390" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="AXS-IX-Bcd"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="x"/>
+                                    <segment title="y"/>
+                                    <segment title="xy"/>
+                                </segments>
+                                <connections>
+                                    <action selector="selectPanType:" destination="BYZ-38-t0r" eventType="valueChanged" id="yrk-Ei-SsI"/>
+                                </connections>
+                            </segmentedControl>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gj2-UT-Icc" customClass="DraggableView" customModule="UIKit05_PanGesture_App" customModuleProvider="target">
+                                <rect key="frame" x="75" y="413" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ltX-XL-gBg" secondAttribute="trailing" id="7oh-Z6-grt"/>
+                            <constraint firstItem="ltX-XL-gBg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="irc-qD-eKr"/>
+                            <constraint firstItem="ltX-XL-gBg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="kQ3-rL-zRI"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="myView" destination="gj2-UT-Icc" id="1h2-KT-BdE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -27,6 +56,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
