@@ -11,9 +11,15 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        
     }
 
-
+    override func viewDidAppear(_ animated: Bool) {
+        let pageVC = OnBoardingPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: .none)
+        pageVC.modalPresentationStyle = .fullScreen
+        self.present(pageVC, animated: true, completion: nil)
+        
+    }
 }
 
