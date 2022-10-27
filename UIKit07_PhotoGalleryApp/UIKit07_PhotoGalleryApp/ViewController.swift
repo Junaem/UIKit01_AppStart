@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PhotosUI // 포토, 갤러리 관련된 기능 라이브러리
 
 class ViewController: UIViewController {
 
@@ -39,7 +40,13 @@ class ViewController: UIViewController {
     
     
     @objc func showGallery() {
+        let library = PHPhotoLibrary.shared() //shared는 싱글톤으로 가져온 우리 라이브러리
         
+        var configuration = PHPickerConfiguration(photoLibrary: library)    // library에다 써먹을 설정
+        configuration.selectionLimit = 10
+        let picker = PHPickerViewController(configuration: configuration)   // 화면에 띄울 피커
+        
+        present(picker, animated: true, completion: nil)
     }
     
     @objc func refresh() {
