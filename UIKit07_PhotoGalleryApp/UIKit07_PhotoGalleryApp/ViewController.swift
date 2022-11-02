@@ -9,8 +9,9 @@ import UIKit
 import PhotosUI // 포토, 갤러리 관련된 기능 라이브러리
 
 class ViewController: UIViewController {
-
     @IBOutlet weak var photoCollectionView: UICollectionView!
+    
+    var fetchResults: PHFetchResult<PHAsset>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,24 +87,44 @@ class ViewController: UIViewController {
     }
     
     @objc func refresh() {
-        
+        self.photoCollectionView.reloadData()
     }
 
 }
 
 extension ViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        self.fetchResults?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as! PhotoCell
+        
+        if let asset = self.fetchResults?[indexPath.row] {
+            cell.loadImage(asset: asset)    // 여기서 asset가지고 이미지를 불러내는게 아닌 asset만 cell한테 보내주면 cell이 본인의 함수로 이미지를 가져오게 함. 안그러면 asset이 저화질, 고화질로 이미지를 두 번 불러오기 때문에 관리하기 어려움.
+        }
+        
         return cell
     }
 }
 
 extension ViewController: PHPickerViewControllerDelegate {
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        
+//        results.map{ $0.assetIdentifier}
+        let identifiers = results.map {  // [String?]이기 때문에 안의 클로져로 옵셔널을 직접 꺼내줌
+            $0.assetIdentifier ?? ""
+        }
+        self.fetchResults = PHAsset.fetchAssets(withLocalIdentifiers: identifiers, options: nil) // delegate(여기)에서 전역변수에 집어넣고 cell만들때 가져올 수 있게 만듦
+        
+        
+        
+//        fetchAssets.enumerateObjects { asset, index, stop in
+//            if index == 2 {
+//                stop.pointee = true // 2번에서 멈추고 싶을때
+//            }
+//        }
+        self.photoCollectionView.reloadData()   // VC의 dataSource 익스텐션을 다시 로드해서 fetchResult에 맞게 새로 그려줘야함
         self.dismiss(animated: true)
     }
     
