@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E7270842291B824400D864D1 /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7270841291B824400D864D1 /* MovieModel.swift */; };
 		E7F9DDAB29139F9000B2DEA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F9DDAA29139F9000B2DEA8 /* AppDelegate.swift */; };
 		E7F9DDAD29139F9000B2DEA8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F9DDAC29139F9000B2DEA8 /* SceneDelegate.swift */; };
 		E7F9DDAF29139F9000B2DEA8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F9DDAE29139F9000B2DEA8 /* ViewController.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E7270841291B824400D864D1 /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
 		E7F9DDA729139F9000B2DEA8 /* UIKit08_MovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIKit08_MovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7F9DDAA29139F9000B2DEA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7F9DDAC29139F9000B2DEA8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				E7F9DDAA29139F9000B2DEA8 /* AppDelegate.swift */,
 				E7F9DDAC29139F9000B2DEA8 /* SceneDelegate.swift */,
 				E7F9DDAE29139F9000B2DEA8 /* ViewController.swift */,
+				E7270841291B824400D864D1 /* MovieModel.swift */,
 				E7F9DDDA2913A1FD00B2DEA8 /* MovieCell.swift */,
 				E7F9DDB029139F9000B2DEA8 /* Main.storyboard */,
 				E7F9DDB329139F9200B2DEA8 /* Assets.xcassets */,
@@ -263,6 +266,7 @@
 			files = (
 				E7F9DDAF29139F9000B2DEA8 /* ViewController.swift in Sources */,
 				E7F9DDAB29139F9000B2DEA8 /* AppDelegate.swift in Sources */,
+				E7270842291B824400D864D1 /* MovieModel.swift in Sources */,
 				E7F9DDDB2913A1FD00B2DEA8 /* MovieCell.swift in Sources */,
 				E7F9DDAD29139F9000B2DEA8 /* SceneDelegate.swift in Sources */,
 			);
