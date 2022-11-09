@@ -62,13 +62,42 @@ class ViewController: UIViewController {
         session.finishTasksAndInvalidate()
         
     }
-
+    
+    func loadImage(urlString: String, completion: @escaping (UIImage?) -> Void) {   // 클로져 안에서 사용한 파라미터, 데이터들이 클로져 밖에서도 사용할 수 있게 escaping
+        let sessionConfig = URLSessionConfiguration.default
+        let session = URLSession(configuration: sessionConfig)
+        
+        if let hasURL = URL(string: urlString) {
+            var request = URLRequest(url: hasURL)
+            request.httpMethod = "GET"
+            
+            session.dataTask(with: request) { data, response, error in
+                print( (response as! HTTPURLResponse).statusCode)
+                
+                if let hasData = data {
+                    completion(UIImage(data: hasData))
+                    return
+                }
+            }.resume()  // datatask는 반드시 실행해야함
+            session.finishTasksAndInvalidate()
+        }
+        completion(nil) //  iflet을 통과 못해서 밑으로 내려오면 completion이 실행 안되서 메모리를 계속 잡고 있어서 실행시켜줘야됨. 클로져는 호출 안되면 계속 있는다고 함.
+    }
+    
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.movieModel?.resultCount ?? 0
     }
+    
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return UITableView.automaticDimension
+//    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    } // 이거나 위에거 안 써도 컨텐츠 크기만큼 높이가 잡히지만 ios 예전 버전에서는 안 되서 직접 해주면 좋음
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
@@ -78,10 +107,33 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         let currency = self.movieModel?.results[indexPath.row].currency ?? ""
         let price = self.movieModel?.results[indexPath.row].trackPrice.description ?? ""
         cell.priceLabel.text = currency + price
+        
+        if let hasImage = self.movieModel?.results[indexPath.row].image {
+            self.loadImage(urlString: hasImage) { image in
+                DispatchQueue.main.async {
+                    cell.movieImageView.image = image
+                }
+            }
+        }
+        
+        if let dateString = self.movieModel?.results[indexPath.row].releaseDate {
+            let formatter = ISO8601DateFormatter()
+            if let isoDate = formatter.date(from: dateString) {
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd"
+                let date = dateFormatter.string(from: isoDate)
+                
+                cell.dateLabel.text = date
+            }
+            
+        }
+        
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
 
 extension ViewController: UISearchBarDelegate {

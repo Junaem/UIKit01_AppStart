@@ -46,7 +46,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vUg-sV-sRi">
-                                                    <rect key="frame" x="120" y="121" width="250" height="21"/>
+                                                    <rect key="frame" x="120" y="116" width="250" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -64,7 +64,7 @@
                                                 <constraint firstItem="vUg-sV-sRi" firstAttribute="top" relation="greaterThanOrEqual" secondItem="CXE-G9-gS1" secondAttribute="bottom" constant="5" id="5Vx-BZ-uIs"/>
                                                 <constraint firstItem="ydH-OQ-QDb" firstAttribute="top" secondItem="W1o-rZ-ABF" secondAttribute="bottom" constant="5" id="BXh-T6-4Gw"/>
                                                 <constraint firstItem="CXE-G9-gS1" firstAttribute="leading" secondItem="Uo9-gh-0nq" secondAttribute="trailing" constant="5" id="E5C-Fr-8bU"/>
-                                                <constraint firstAttribute="bottom" secondItem="vUg-sV-sRi" secondAttribute="bottom" constant="5" id="Kv9-vG-cn2"/>
+                                                <constraint firstAttribute="bottom" secondItem="vUg-sV-sRi" secondAttribute="bottom" constant="10" id="Kv9-vG-cn2"/>
                                                 <constraint firstItem="Uo9-gh-0nq" firstAttribute="top" secondItem="Y3B-r3-1H3" secondAttribute="topMargin" constant="5" id="MxY-lC-BfJ"/>
                                                 <constraint firstItem="ydH-OQ-QDb" firstAttribute="leading" secondItem="Uo9-gh-0nq" secondAttribute="trailing" constant="5" id="P59-W1-x77"/>
                                                 <constraint firstAttribute="trailing" secondItem="CXE-G9-gS1" secondAttribute="trailing" constant="20" id="QO8-D7-Wq7"/>
