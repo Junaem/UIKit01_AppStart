@@ -9,11 +9,11 @@ import Foundation
 
 struct MovieModel: Codable {    // Json 바로 인코딩, 디코딩 가능하게 해주는 프로토콜
     let resultCount: Int
-    let results: [Result]
+    let results: [MovieResult]
     
 }
 
-struct Result: Codable {
+struct MovieResult: Codable {
     let trackName: String  // api에서 없을 수도 있으니 Optional
     let previewUrl: String
     let image: String

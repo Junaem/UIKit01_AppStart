@@ -22,16 +22,15 @@ class ViewController: UIViewController {
         movieTableView.dataSource = self
         searchBar.delegate = self
         
-        requestMovieApi()
     }
 
-    func requestMovieApi() {
+    func requestMovieApi(searchString: String) {
         let sessionConfig = URLSessionConfiguration.default
         let session = URLSession(configuration: sessionConfig)
         
         var components = URLComponents(string: "https://itunes.apple.com/search")
         
-        let term = URLQueryItem(name: "term", value: "marvel")
+        let term = URLQueryItem(name: "term", value: searchString)
         let media = URLQueryItem(name: "media", value: "movie")
         
         components?.queryItems = [term, media]
@@ -63,7 +62,7 @@ class ViewController: UIViewController {
         
     }
     
-    func loadImage(urlString: String, completion: @escaping (UIImage?) -> Void) {   // 클로져 안에서 사용한 파라미터, 데이터들이 클로져 밖에서도 사용할 수 있게 escaping
+    func loadImage(urlString: String, completion: @escaping (UIImage?) -> Void) {   // 클로져 안에서 사용한 파라미터, 데이터들이 클로져 밖에서도 사용할 수 있게 escaping. 이래야 함수가 종료된 뒤에 클로져가 실행 가능
         let sessionConfig = URLSessionConfiguration.default
         let session = URLSession(configuration: sessionConfig)
         
@@ -132,12 +131,25 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // 앞에 있는 네임은 storyboard의 파일명, 뒤의 identifier는 storyboard 내 실제 VC의 identifier
+        let detailVC = UIStoryboard(name: "MovieDetailViewController", bundle: nil).instantiateViewController(identifier: "MovieDetailViewController") as! MovieDetailViewController
+        detailVC.movieResult = self.movieModel?.results[indexPath.row]
+//        self.present(detailVC, animated: true) {
+//            detailVC.movieResult = self.movieModel?.results[indexPath.row]
+//        }
+        detailVC.modalPresentationStyle = .automatic
+        self.present(detailVC, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
 extension ViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let hasText = searchBar.text else {   // 검색어가 없으면 필요없으니 guard let
+            return
+        }
+        requestMovieApi(searchString: hasText)
+        self.view.endEditing(true)
     }
     
 }
