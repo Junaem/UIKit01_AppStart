@@ -14,14 +14,14 @@ struct MovieModel: Codable {    // Json 바로 인코딩, 디코딩 가능하게
 }
 
 struct MovieResult: Codable {
-    let trackName: String  // api에서 없을 수도 있으니 Optional
-    let previewUrl: String
-    let image: String
+    let trackName: String?  // api에서 없을 수도 있으니 Optional
+    let previewUrl: String?
+    let image: String?
     let shortDescription: String?
-    let longDescription: String
-    let currency: String
-    let trackPrice: Double
-    let releaseDate: String
+    let longDescription: String?
+    let currency: String?
+    let trackPrice: Double?
+    let releaseDate: String?
 //    let releaseDate: Date
     
     enum CodingKeys: String, CodingKey {

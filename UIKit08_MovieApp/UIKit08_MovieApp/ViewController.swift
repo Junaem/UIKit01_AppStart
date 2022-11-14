@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     
     var movieModel: MovieModel?
+    var networkLayer = NetworkLayer()
     
     @IBOutlet weak var movieTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -23,31 +24,16 @@ class ViewController: UIViewController {
         searchBar.delegate = self
         
     }
-
+    
     func requestMovieApi(searchString: String) {
-        let sessionConfig = URLSessionConfiguration.default
-        let session = URLSession(configuration: sessionConfig)
-        
-        var components = URLComponents(string: "https://itunes.apple.com/search")
-        
         let term = URLQueryItem(name: "term", value: searchString)
         let media = URLQueryItem(name: "media", value: "movie")
+        let queries = [term, media]
         
-        components?.queryItems = [term, media]
-        guard let url = components?.url else {
-            return
-        }
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        
-        let task = session.dataTask(with: request) { data, response, error in
-            print( (response as! HTTPURLResponse).statusCode )
-            
+        networkLayer.request(type: .searchMovie(queries: queries)) { data, response, error in
             if let hasData = data {
                 do {
                     self.movieModel = try JSONDecoder().decode(MovieModel.self, from: hasData)
-                    print(self.movieModel ?? "No data")
                     DispatchQueue.main.async {
                         self.movieTableView.reloadData()    // 클로져 안이기 때문에 매인 스레드에서 갱신
                     }
@@ -55,33 +41,76 @@ class ViewController: UIViewController {
                     print(error)
                 }
             }
-        
         }
-        task.resume()
-        session.finishTasksAndInvalidate()
         
     }
     
     func loadImage(urlString: String, completion: @escaping (UIImage?) -> Void) {   // 클로져 안에서 사용한 파라미터, 데이터들이 클로져 밖에서도 사용할 수 있게 escaping. 이래야 함수가 종료된 뒤에 클로져가 실행 가능
-        let sessionConfig = URLSessionConfiguration.default
-        let session = URLSession(configuration: sessionConfig)
-        
-        if let hasURL = URL(string: urlString) {
-            var request = URLRequest(url: hasURL)
-            request.httpMethod = "GET"
-            
-            session.dataTask(with: request) { data, response, error in
-                print( (response as! HTTPURLResponse).statusCode)
-                
-                if let hasData = data {
-                    completion(UIImage(data: hasData))
-                    return
-                }
-            }.resume()  // datatask는 반드시 실행해야함
-            session.finishTasksAndInvalidate()
+        networkLayer.request(type: .onlyURL(urlString: urlString)) { data, response, error in
+            if let hasData = data {
+                completion(UIImage(data: hasData))
+                return
+            }
         }
-        completion(nil) //  iflet을 통과 못해서 밑으로 내려오면 completion이 실행 안되서 메모리를 계속 잡고 있어서 실행시켜줘야됨. 클로져는 호출 안되면 계속 있는다고 함.
     }
+    
+//    NetworkLayout 사용 안 했을 때
+//    func requestMovieApi(searchString: String) {
+//        let sessionConfig = URLSessionConfiguration.default
+//        let session = URLSession(configuration: sessionConfig)
+//
+//        var components = URLComponents(string: "https://itunes.apple.com/search")
+//
+//        let term = URLQueryItem(name: "term", value: searchString)
+//        let media = URLQueryItem(name: "media", value: "movie")
+//
+//        components?.queryItems = [term, media]
+//        guard let url = components?.url else {
+//            return
+//        }
+//
+//        var request = URLRequest(url: url)
+//        request.httpMethod = "GET"
+//
+//        let task = session.dataTask(with: request) { data, response, error in
+//            print( (response as! HTTPURLResponse).statusCode )
+//
+//            if let hasData = data {
+//                do {
+//                    self.movieModel = try JSONDecoder().decode(MovieModel.self, from: hasData)
+//                    DispatchQueue.main.async {
+//                        self.movieTableView.reloadData()    // 클로져 안이기 때문에 매인 스레드에서 갱신
+//                    }
+//                } catch {
+//                    print(error)
+//                }
+//            }
+//
+//        }
+//        task.resume()
+//        session.finishTasksAndInvalidate()
+//
+//    }
+//
+//    func loadImage(urlString: String, completion: @escaping (UIImage?) -> Void) {   // 클로져 안에서 사용한 파라미터, 데이터들이 클로져 밖에서도 사용할 수 있게 escaping. 이래야 함수가 종료된 뒤에 클로져가 실행 가능
+//        let sessionConfig = URLSessionConfiguration.default
+//        let session = URLSession(configuration: sessionConfig)
+//
+//        if let hasURL = URL(string: urlString) {
+//            var request = URLRequest(url: hasURL)
+//            request.httpMethod = "GET"
+//
+//            session.dataTask(with: request) { data, response, error in
+//
+//                if let hasData = data {
+//                    completion(UIImage(data: hasData))
+//                    return
+//                }
+//            }.resume()  // datatask는 반드시 실행해야함
+//            session.finishTasksAndInvalidate()
+//        }
+//        completion(nil) //  iflet을 통과 못해서 밑으로 내려오면 completion이 실행 안되서 메모리를 계속 잡고 있어서 실행시켜줘야됨. 안 해도 에러가 나지 않지만 호출 안 된 클로져가 메모리 계속 있는다고 함.
+//    }
     
 }
 
@@ -104,7 +133,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         cell.descriptionLabel.text = self.movieModel?.results[indexPath.row].shortDescription
         
         let currency = self.movieModel?.results[indexPath.row].currency ?? ""
-        let price = self.movieModel?.results[indexPath.row].trackPrice.description ?? ""
+        let price = self.movieModel?.results[indexPath.row].trackPrice?.description ?? ""
         cell.priceLabel.text = currency + price
         
         if let hasImage = self.movieModel?.results[indexPath.row].image {
